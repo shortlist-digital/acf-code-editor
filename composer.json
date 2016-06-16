@@ -1,0 +1,13 @@
+{
+  "name": "shortlist-digital/acf-code-editor",
+  "type": "wordpress-plugin",
+  "license": "MIT",
+  "description": "A CodeMirror powered HTML, CSS, and JS editor field",
+  "authors": [
+    {
+      "name": "Jon Sherrard",
+      "email": "jon@andthats.it"
+    }
+  ],
+  "require": {}
+}
