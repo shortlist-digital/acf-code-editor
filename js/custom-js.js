@@ -11046,8 +11046,48 @@ require('codemirror/mode/css/css');
 
 require('codemirror/mode/htmlmixed/htmlmixed');
 
-require('codemirror/lib/codemirror');
+var CodeMirror = require('codemirror/lib/codemirror');
 
-console.log(CodeMirror);
+window.$ = window.$ || jQuery || window.jQuery;
+
+var sw_interval = void 0;
+
+var instantiator = function instantiator(el) {
+  var instance = CodeMirror.fromTextArea(el, {
+    lineNumbers: true,
+    mode: "htmlmixed",
+    theme: 'monokai',
+    tabSize: 2,
+    lineWrapping: true
+  });
+  return instance;
+};
+
+var strict_wysiwyg = function strict_wysiwyg() {
+  console.log('Interval fired');
+  if (typeof $ !== "undefined" && $ !== null) {
+    clearInterval(sw_interval);
+    var editors = $('.codemirror-wrapper textarea');
+    if (editors.length) {
+      for (var i = 0; i < editors.length; i++) {
+        instantiator(editors[i]);
+      }
+    }
+  }
+};
+
+acf.add_action('ready', function () {
+  sw_interval = setInterval(strict_wysiwyg, 10);
+});
+
+acf.add_action('append', function ($el) {
+  // $el will be equivalent to the new element being appended $('tr.row')
+  // find a specific field
+  var $field = $el.find('.codemirror-wrapper textarea');
+  if ($field.length) {
+    var newInstance = instantiator($field[0]);
+    newInstance.focus();
+  }
+});
 
 },{"codemirror/lib/codemirror":1,"codemirror/mode/css/css":2,"codemirror/mode/htmlmixed/htmlmixed":3,"codemirror/mode/javascript/javascript":4,"codemirror/mode/xml/xml":5}]},{},[6]);
