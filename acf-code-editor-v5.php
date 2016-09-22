@@ -104,8 +104,8 @@ class acf_code_field extends acf_field
             $rendered_attributes[$attribute] = $field[$attribute];
         }
         $value = esc_textarea($field['value']); ?>
-			<div class='codemirror-wrapper' <?php echo acf_esc_attr($rendered_attributes) ?>>
-				<textarea><?php echo $value ?></textarea>
+			<div class='codemirror-wrapper'>
+				<textarea <?php echo acf_esc_attr($rendered_attributes) ?>><?php echo $value ?></textarea>
 			</div>
 		<?php
 

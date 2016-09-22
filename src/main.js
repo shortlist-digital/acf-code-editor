@@ -23,7 +23,6 @@ let instantiator = function(el) {
 }
 
 const strict_wysiwyg = function() {
-	console.log('Interval fired')
   if ((typeof $ !== 'undefined' && $ !== null)) {
     clearInterval(sw_interval)
     var editors = $('.codemirror-wrapper textarea')
@@ -54,6 +53,6 @@ acf.add_action('append', ( $el ) => {
   if ($field.length) {
     let newInstance = instantiator($field[0])
 		newInstance.focus()
-    editorInstances.push(newInstace)
+    editorInstances.push(newInstance)
   }
 })

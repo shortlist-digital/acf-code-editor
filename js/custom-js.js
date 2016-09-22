@@ -11149,7 +11149,6 @@ var instantiator = function instantiator(el) {
 };
 
 var strict_wysiwyg = function strict_wysiwyg() {
-  console.log('Interval fired');
   if (typeof $ !== 'undefined' && $ !== null) {
     clearInterval(sw_interval);
     var editors = $('.codemirror-wrapper textarea');
@@ -11180,7 +11179,7 @@ acf.add_action('append', function ($el) {
   if ($field.length) {
     var newInstance = instantiator($field[0]);
     newInstance.focus();
-    editorInstances.push(newInstace);
+    editorInstances.push(newInstance);
   }
 });
 
