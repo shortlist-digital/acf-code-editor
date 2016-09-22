@@ -1,8 +1,5 @@
 import 'codemirror/mode/xml/xml'
 import 'codemirror/mode/javascript/javascript'
-import 'codemirror/mode/jsx/jsx'
-import 'codemirror/mode/twig/twig'
-import 'codemirror/mode/php/php'
 import 'codemirror/mode/css/css'
 import 'codemirror/mode/htmlmixed/htmlmixed'
 
