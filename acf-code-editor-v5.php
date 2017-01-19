@@ -138,7 +138,7 @@ class acf_code_field extends acf_field
         $last = array_pop($dir);
         $next_last = array_pop($dir);
         $folder = basename(dirname(__FILE__));
-        $base_url = get_bloginfo('wpurl');
+        $base_url = get_bloginfo('url');
         $dir = "$base_url/$next_last/$last/$folder/";
 
 
