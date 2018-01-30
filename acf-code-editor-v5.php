@@ -132,24 +132,15 @@ class acf_code_field extends acf_field
 
     public function input_admin_enqueue_scripts()
     {
-        $dir = plugin_dir_url(__FILE__);
-        $dir = WPMU_PLUGIN_DIR;
-        $dir = explode('/', $dir);
-        $last = array_pop($dir);
-        $next_last = array_pop($dir);
-        $folder = basename(dirname(__FILE__));
-        $base_url = get_bloginfo('url');
-        $dir = "$base_url/$next_last/$last/$folder/";
-
-
 
         // register & include JS
-        wp_register_script('acf-input-code_editor-custom', "{$dir}js/custom-js.js");
+        wp_register_script('acf-input-code_editor-custom', plugins_url('js/custom-js.js', __FILE__));
         wp_enqueue_script('acf-input-code_editor-custom');
 
         // register & include CSS
-        wp_enqueue_style('acf-input-code-field', "{$dir}css/codemirror.css");
-        wp_enqueue_style('codemirror-monokai', "{$dir}css/monokai.css");
+        wp_enqueue_style('acf-input-code-field', plugins_url('css/codemirror.css', __FILE__));
+        wp_enqueue_style('codemirror-monokai', plugins_url('css/monokai.css', __FILE__));
+
     }
 
 
